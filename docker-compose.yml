@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    container_name: quiz
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./questionnaire/:/app
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    depends_on:
+      - pgdb
+
+  pgdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=quiz
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: pgdb
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: demo@demo.ru
+      PGADMIN_DEFAULT_PASSWORD: demo
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./servers.json:/pgadmin4/servers.json
+
+    container_name: pgadm
+    depends_on:
+      - pgdb
+    ports:
+      - 5050:80
+
+volumes:
+  pgdbdata: 
+    driver: local
+  pgadmin_data:
+    driver: local

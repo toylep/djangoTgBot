@@ -1,0 +1,36 @@
+{'id': '3596287023005785141', 
+	'from': {
+		'id': 837325822,
+		'is_bot': False,
+		'first_name': 'Toylep',
+		'username': 'toylep', 'language_code': 'ru'
+    },
+		'message': {
+			'message_id': 657,
+			'from': {
+				'id': 7103773317,
+				'is_bot': True,
+				'first_name': 'QuizBot',
+				'username': 'toyleps_quiz_bot'
+        },
+	 'chat': {
+		'id': 837325822,
+		'first_name': 'Toylep',
+		'username': 'toylep',
+		'type': 'private'
+        }, 'date': 1715840534,
+	 'text': 'Любите ли вы животных?',
+ 	'reply_markup': {'inline_keyboard': [
+                [
+                    {
+			'text': 'Да!',
+			'callback_data': 'Да!'
+                    },
+                    {'text': 'Нет (', 'callback_data': 'Нет ('
+                    }
+                ]
+            ]
+        }
+    },
+			'chat_instance': '1910891168585559281', 'data': 'Да!'
+}
